@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 const initState = {
     popular: [],
     newGames: [],
@@ -8,9 +6,10 @@ const initState = {
 };
 
 const gamesReducer = (state: any = initState, action: any) => {
-    switch (action) {
+    switch (action.type) {
         case 'FETCH_GAMES':
-            return { ...state };
+            console.log('i enteres');
+            return { ...state, popular: action.payload.popular };
         default:
             return { ...state };
     }

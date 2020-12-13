@@ -14,11 +14,17 @@ const Game = ({ game }: any) => {
         dispatch(loadDetail(game.id));
     };
     return (
-        <StyledGame onClick={() => loadDetailHandler()}>
+        <StyledGame
+            layoutId={game.id.toString()}
+            onClick={() => loadDetailHandler()}
+        >
             <Link to={`/games/${game.id}`}>
-                <h3>{game.name}</h3>
+                <motion.h3 layoutId={`h3${game.id.toString()}`}>
+                    {game.name}
+                </motion.h3>
                 <p>{game.released}</p>
-                <img
+                <motion.img
+                    layoutId={`Image${game.id.toString()}`}
                     src={getSmallImage(game.background_image, 640)}
                     alt={game.name}
                 />

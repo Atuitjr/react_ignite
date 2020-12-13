@@ -9,7 +9,7 @@ const getCurrentMonth = () => {
 };
 
 const getCurrentDay = () => {
-    const day = new Date().getDay() + 1;
+    const day = new Date().getDate();
     if (day < 10) return `0${day}`;
     return day;
 };

@@ -4,43 +4,47 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 
 const GameDetail = () => {
-    const { game, screenshots } = useSelector((state: any) => state.gameDetail);
-    console.log(game);
-    if (game === undefined) return null;
+    const { game, screenshots, isLoading } = useSelector(
+        (state: any) => state.gameDetail
+    );
     return (
-        <CardShadow>
-            <Detail>
-                <Stats>
-                    <div className='rating'>
-                        <h3>{game.name}</h3>
-                        <p>Rating: {game.rating}</p>
-                    </div>
-                    <Info>
-                        <h3>Platforms</h3>
-                        <Platforms>
-                            {game.platforms.map((data: any) => (
-                                <h3 key={data.platform.id}>
-                                    {data.platform.name}
-                                </h3>
+        <>
+            {!isLoading && (
+                <CardShadow>
+                    <Detail>
+                        <Stats>
+                            <div className='rating'>
+                                <h3>{game.name}</h3>
+                                <p>Rating: {game.rating}</p>
+                            </div>
+                            <Info>
+                                <h3>Platforms</h3>
+                                <Platforms>
+                                    {game.platforms.map((data: any) => (
+                                        <h3 key={data.platform.id}>
+                                            {data.platform.name}
+                                        </h3>
+                                    ))}
+                                </Platforms>
+                            </Info>
+                        </Stats>
+                        <Media>
+                            <img src={game.background_image} alt={game.id} />
+                        </Media>
+                        <Description>{game.description_raw}</Description>
+                        <div className='gallery'>
+                            {screenshots.results.map((screenshot: any) => (
+                                <img
+                                    src={screenshot.image}
+                                    alt={screenshot.id}
+                                    key={screenshot.id}
+                                />
                             ))}
-                        </Platforms>
-                    </Info>
-                </Stats>
-                <Media>
-                    <img src={game.background_image} alt={game.id} />
-                </Media>
-                <Description>{game.description_raw}</Description>
-                <div className='gallery'>
-                    {screenshots.results.map((screenshot: any) => (
-                        <img
-                            src={screenshot.image}
-                            alt={screenshot.id}
-                            key={screenshot.id}
-                        />
-                    ))}
-                </div>
-            </Detail>
-        </CardShadow>
+                        </div>
+                    </Detail>
+                </CardShadow>
+            )}
+        </>
     );
 };
 

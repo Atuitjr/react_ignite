@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { loadDetail } from '../actions/gameDetailAction';
 
 import { Link } from 'react-router-dom';
+import { getSmallImage } from '../util';
 
 const Game = ({ game }: any) => {
     const dispatch = useDispatch();
@@ -12,13 +13,15 @@ const Game = ({ game }: any) => {
         document.body.style.overflow = 'hidden';
         dispatch(loadDetail(game.id));
     };
-
     return (
         <StyledGame onClick={() => loadDetailHandler()}>
             <Link to={`/games/${game.id}`}>
                 <h3>{game.name}</h3>
                 <p>{game.released}</p>
-                <img src={game.background_image} alt={game.name} />
+                <img
+                    src={getSmallImage(game.background_image, 640)}
+                    alt={game.name}
+                />
             </Link>
         </StyledGame>
     );

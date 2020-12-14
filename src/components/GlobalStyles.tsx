@@ -15,6 +15,15 @@ html{
   &::-webkit-scrollbar-track {
       background: white;
   }
+  &::-moz-scrollbar{
+    width: 0.5rem;
+  }
+  &::-moz-scrollbar-thumb{
+    background-color:darkgrey;
+  }
+  &::-moz-scrollbar-track {
+      background: white;
+  }
 }
 body{
   font-family: 'Montserrat', sans-serif;

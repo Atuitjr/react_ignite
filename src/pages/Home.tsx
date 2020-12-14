@@ -40,12 +40,6 @@ const Home = () => {
                         ))}
                     </Games>
                 )}
-                <h2>Upcoming Games</h2>
-                <Games>
-                    {upcoming.map((game: any) => (
-                        <Game game={game} key={`${game.slug}${game.id}`} />
-                    ))}
-                </Games>
 
                 <h2>Popular Games</h2>
                 <Games>
@@ -57,6 +51,13 @@ const Home = () => {
                 <h2>New Games</h2>
                 <Games>
                     {newGames.map((game: any) => (
+                        <Game game={game} key={`${game.slug}${game.id}`} />
+                    ))}
+                </Games>
+
+                <h2>Upcoming Games</h2>
+                <Games>
+                    {upcoming.map((game: any) => (
                         <Game game={game} key={`${game.slug}${game.id}`} />
                     ))}
                 </Games>

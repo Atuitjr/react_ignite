@@ -20,7 +20,7 @@ const Home = () => {
     }, [dispatch]);
 
     //get data from store
-    const { popular, upcoming, newGames } = useSelector(
+    const { popular, upcoming, newGames, searched } = useSelector(
         (state: any) => state.games
     );
 
@@ -30,6 +30,14 @@ const Home = () => {
                 <AnimatePresence>
                     {pathId && <GameDetail pathId={pathId} />}
                 </AnimatePresence>
+                {searched.length > 0 && <h2>Searched Games</h2>}
+                {searched.length > 0 && (
+                    <Games>
+                        {searched.map((game: any) => (
+                            <Game game={game} key={`${game.slug}${game.id}`} />
+                        ))}
+                    </Games>
+                )}
                 <h2>Upcoming Games</h2>
                 <Games>
                     {upcoming.map((game: any) => (

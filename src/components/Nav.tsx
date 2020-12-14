@@ -10,7 +10,7 @@ const Nav = () => {
     const dispatch = useDispatch();
     const [textInput, setTextInput] = useState('');
 
-    const intputHandler = (e: any) => {
+    const inputHandler = (e: any) => {
         setTextInput(e.target.value);
     };
 
@@ -31,7 +31,7 @@ const Nav = () => {
                 <h1>Ignite</h1>
             </Logo>
             <form className='search'>
-                <input onChange={intputHandler} value={textInput} type='text' />
+                <input onChange={inputHandler} value={textInput} type='text' />
                 <button onClick={submitSearch} type='submit'>
                     Search
                 </button>

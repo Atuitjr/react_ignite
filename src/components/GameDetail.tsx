@@ -145,6 +145,9 @@ const Detail = styled(motion.div)`
     img {
         width: 100%;
     }
+    @media (max-width: 1500px) {
+        padding: 1rem 2rem;
+    }
 `;
 
 const Stats = styled(motion.div)`

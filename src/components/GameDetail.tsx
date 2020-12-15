@@ -74,7 +74,7 @@ const GameDetail = ({ pathId }: any) => {
                                     {game.name}
                                 </motion.h3>
                                 <p>Rating: {game.rating}</p>
-                                {getStars()}
+                                <div className='start'>{getStars()}</div>
                             </div>
                             <Info>
                                 <h3>Platforms</h3>
@@ -156,6 +156,16 @@ const Stats = styled(motion.div)`
         height: 2rem;
         display: inline;
     }
+    @media (max-width: 1500px) {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        .rating {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
 `;
 
 const Info = styled(motion.div)`
@@ -168,6 +178,12 @@ const Platforms = styled(motion.div)`
     img {
         margin-left: 3rem;
     }
+    @media (max-width: 1500px) {
+        justify-content: space-between;
+        img {
+            margin: 0;
+        }
+    }
 `;
 
 const Media = styled(motion.div)`
@@ -179,6 +195,9 @@ const Media = styled(motion.div)`
 
 const Description = styled(motion.div)`
     margin: 5rem 0rem;
+    @media (max-width: 1500px) {
+        margin: 2rem 0rem;
+    }
 `;
 
 export default GameDetail;
